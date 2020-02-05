@@ -1,0 +1,2 @@
+echo hello from s2i/bin/run
+php -S 0.0.0.0:8080
