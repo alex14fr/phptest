@@ -7,6 +7,6 @@ cp -a /persist/code/* .
 cp -a /persist/code/.* .
 ln -s /persist/data .
 ln -s /persist/pecnum .
-ls -l
-cat /opt/app-root/etc/conf.d/50-mpm-tuning.conf
-exec php -S 0.0.0.0:8080
+ls -la
+> /opt/app-root/etc/conf.d/50-mpm-tuning.conf
+exec httpd -DFOREGROUND
