@@ -12,7 +12,7 @@ conf2del="conf.d/autoindex conf.d/ssl conf.d/userdir conf.d/welcome \
           conf.modules.d/00-dav conf.modules.d/00-lua conf.modules.d/00-optional \
           conf.modules.d/00-proxy conf.modules.d/00-ssl"
 for f in $conf2del; do
-  mv /etc/httpd/$f.conf $f.conf.off
+  mv /etc/httpd/$f.conf /etc/httpd/$f.conf.off
 done
 exec /usr/libexec/s2i/run
 #> /opt/app-root/etc/conf.d/50-mpm-tuning.conf
