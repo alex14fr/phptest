@@ -8,15 +8,6 @@ cp -a /persist/code/.htaccess .
 ln -s /persist/data 
 ln -s /persist/pecnum 
 ls -la
-keep_mod_conf="00-base 00-mpm 15-rh-php72-php"
-for m in $keep_mod_conf; do
- echo "Include conf.modules.d/$m.conf" >> /etc/httpd/conf.d/AA-loadmod.conf
-done
-sed -n -e 's/Include conf\.modules\.d\/\*\.conf/Include conf.d\/AA-loadmod.conf/' /etc/httpd/conf/httpd.conf
-conf2del="conf.d/autoindex conf.d/ssl conf.d/userdir conf.d/welcome"
-for f in $conf2del; do
-  mv /etc/httpd/$f.conf /etc/httpd/$f.conf.off
-done
 exec /usr/libexec/s2i/run
 #> /opt/app-root/etc/conf.d/50-mpm-tuning.conf
 #exec httpd -DFOREGROUND
